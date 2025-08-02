@@ -3,59 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Church Service - Order of Program</title>
+    <title>Order of Program</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
+
     <style>
       body {
-        font-family: "Inter", sans-serif;
-        position: relative;
-        z-index: 0;
+        font-family: 'Inter', sans-serif;
       }
 
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background: url("https://res.cloudinary.com/dxnoztssb/image/upload/v1754150562/rccg/bg.jpg")
-          no-repeat center center fixed;
-        background-size: cover;
-        filter: blur(8px) brightness(0.6);
-        z-index: -1;
-      }
-
-      /* Mobile-specific background image */
-      @media (max-width: 768px) {
-        body::before {
-          background: url("https://res.cloudinary.com/dxnoztssb/image/upload/v1754151533/rccg/bgmobile.jpg")
-            no-repeat center center fixed;
-          background-size: cover;
-        }
-      }
-
-      .heading-font {
-        font-family: "Crimson Text", serif;
-      }
-
-      @media print {
-        .no-print {
-          display: none !important;
-        }
-        body {
-          background: white !important;
-        }
-        .bg-white\/80 {
-          background: white !important;
-        }
-        .shadow-xl {
-          box-shadow: none !important;
-        }
-      }
-
-      @keyframes fadeInUp {
+      @keyframes fade-in-up {
         from {
           opacity: 0;
           transform: translateY(30px);
@@ -67,238 +31,99 @@
       }
 
       .animate-fade-in-up {
-        animation: fadeInUp 0.6s ease-out both;
+        animation: fade-in-up 0.6s ease-out forwards;
       }
     </style>
   </head>
-  <body class="min-h-screen relative bg-black/30">
-    <div class="relative min-h-screen py-8 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto">
-        <header class="text-center mb-12 animate-fade-in-up">
-          <div class="mb-6">
-            <div
-              class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-[#B59410] to-[#DECC84] rounded-full mb-4 shadow-lg"
-            >
-              <svg
-                class="w-8 h-8 text-white"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C13.1 2 14 2.9 14 4V8H18C19.1 8 20 8.9 20 10S19.1 12 18 12H14V20C14 21.1 13.1 22 12 22S10 21.1 10 20V12H6C4.9 12 4 11.1 4 10S4.9 8 6 8H10V4C10 2.9 10.9 2 12 2Z"
-                />
-              </svg>
-            </div>
-          </div>
-          <h1
-            class="heading-font text-4xl sm:text-5xl lg:text-6xl font-semibold text-white mb-4 drop-shadow"
-          >
-            Order of Program
-          </h1>
-          <div
-            class="w-24 h-1 bg-gradient-to-r from-[#B59410] to-[#DECC84] mx-auto mb-4 rounded-full"
-          ></div>
-          <p class="text-lg text-gray-200 max-w-2xl mx-auto leading-relaxed">
-            Join us in worship as we follow this sacred order of service,
-            designed to bring us closer to God and to one another.
-          </p>
-        </header>
+  <body class="relative min-h-screen text-white">
+    <!-- Background Images -->
+    <div class="fixed inset-0 -z-10">
+      <div
+        class="hidden sm:block w-full h-full bg-cover bg-center blur-md brightness-75"
+        style="background-image: url('https://res.cloudinary.com/dxnoztssb/image/upload/v1754150562/rccg/bg.jpg')"
+      ></div>
+      <div
+        class="block sm:hidden w-full h-full bg-cover bg-center blur-md brightness-75"
+        style="background-image: url('https://res.cloudinary.com/dxnoztssb/image/upload/v1754151533/rccg/bgmobile.jpg')"
+      ></div>
+    </div>
 
-        <div class="grid gap-4 md:gap-6 lg:grid-cols-2">
-          <!-- List Items -->
-          <div
-            class="group bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl border border-white/30 p-6 sm:p-8 animate-fade-in-up"
+    <!-- Content -->
+    <div class="relative max-w-4xl mx-auto px-4 py-12 z-10">
+      <header class="text-center mb-12">
+        <div
+          class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-[#B59410] to-[#DECC84] rounded-full mb-4 shadow-lg"
+        >
+          <svg
+            class="w-8 h-8 text-white"
+            fill="currentColor"
+            viewBox="0 0 24 24"
           >
-            <div class="flex items-center space-x-4">
-              <div
-                class="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#B59410] to-[#DECC84] rounded-full flex items-center justify-center text-white font-semibold text-lg shadow-lg"
-              >
-                1
-              </div>
-              <div class="flex-1">
-                <h3 class="heading-font text-xl font-medium text-gray-800">
-                  Opening Prayer
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div
-            class="group bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl border border-white/30 p-6 sm:p-8 animate-fade-in-up delay-100"
-          >
-            <div class="flex items-center space-x-4">
-              <div
-                class="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#B59410] to-[#DECC84] rounded-full flex items-center justify-center text-white font-semibold text-lg shadow-lg"
-              >
-                2
-              </div>
-              <div class="flex-1">
-                <h3 class="heading-font text-xl font-medium text-gray-800">
-                  Opening Worship
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div
-            class="group bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl border border-white/30 p-6 sm:p-8 animate-fade-in-up delay-200"
-          >
-            <div class="flex items-center space-x-4">
-              <div
-                class="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#B59410] to-[#DECC84] rounded-full flex items-center justify-center text-white font-semibold text-lg shadow-lg"
-              >
-                3
-              </div>
-              <div class="flex-1">
-                <h3 class="heading-font text-xl font-medium text-gray-800">
-                  Welcome Address
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div
-            class="group bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl border border-white/30 p-6 sm:p-8 animate-fade-in-up delay-300"
-          >
-            <div class="flex items-center space-x-4">
-              <div
-                class="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#B59410] to-[#DECC84] rounded-full flex items-center justify-center text-white font-semibold text-lg shadow-lg"
-              >
-                4
-              </div>
-              <div class="flex-1">
-                <h3 class="heading-font text-xl font-medium text-gray-800">
-                  First Choir Ministration
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div
-            class="group bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl border border-white/30 p-6 sm:p-8 animate-fade-in-up delay-400"
-          >
-            <div class="flex items-center space-x-4">
-              <div
-                class="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#B59410] to-[#DECC84] rounded-full flex items-center justify-center text-white font-semibold text-lg shadow-lg"
-              >
-                5
-              </div>
-              <div class="flex-1">
-                <h3 class="heading-font text-xl font-medium text-gray-800">
-                  Min Onwon
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div
-            class="group bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl border border-white/30 p-6 sm:p-8 animate-fade-in-up delay-500"
-          >
-            <div class="flex items-center space-x-4">
-              <div
-                class="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#B59410] to-[#DECC84] rounded-full flex items-center justify-center text-white font-semibold text-lg shadow-lg"
-              >
-                6
-              </div>
-              <div class="flex-1">
-                <h3 class="heading-font text-xl font-medium text-gray-800">
-                  Drama
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div
-            class="group bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl border border-white/30 p-6 sm:p-8 animate-fade-in-up delay-600"
-          >
-            <div class="flex items-center space-x-4">
-              <div
-                class="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#B59410] to-[#DECC84] rounded-full flex items-center justify-center text-white font-semibold text-lg shadow-lg"
-              >
-                7
-              </div>
-              <div class="flex-1">
-                <h3 class="heading-font text-xl font-medium text-gray-800">
-                  Min Jeremiah Minah
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div
-            class="group bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl border border-white/30 p-6 sm:p-8 animate-fade-in-up delay-700"
-          >
-            <div class="flex items-center space-x-4">
-              <div
-                class="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#B59410] to-[#DECC84] rounded-full flex items-center justify-center text-white font-semibold text-lg shadow-lg"
-              >
-                8
-              </div>
-              <div class="flex-1">
-                <h3 class="heading-font text-xl font-medium text-gray-800">
-                  Second Choir Ministration
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div
-            class="group bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl border border-white/30 p-6 sm:p-8 animate-fade-in-up delay-800"
-          >
-            <div class="flex items-center space-x-4">
-              <div
-                class="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#B59410] to-[#DECC84] rounded-full flex items-center justify-center text-white font-semibold text-lg shadow-lg"
-              >
-                9
-              </div>
-              <div class="flex-1">
-                <h3 class="heading-font text-xl font-medium text-gray-800">
-                  The Word
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div
-            class="group bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl border border-white/30 p-6 sm:p-8 animate-fade-in-up delay-900"
-          >
-            <div class="flex items-center space-x-4">
-              <div
-                class="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#B59410] to-[#DECC84] rounded-full flex items-center justify-center text-white font-semibold text-lg shadow-lg"
-              >
-                10
-              </div>
-              <div class="flex-1">
-                <h3 class="heading-font text-xl font-medium text-gray-800">
-                  Min Jasper
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div
-            class="group bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl border border-white/30 p-6 sm:p-8 animate-fade-in-up delay-[1000ms]"
-          >
-            <div class="flex items-center space-x-4">
-              <div
-                class="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#B59410] to-[#DECC84] rounded-full flex items-center justify-center text-white font-semibold text-lg shadow-lg"
-              >
-                11
-              </div>
-              <div class="flex-1">
-                <h3 class="heading-font text-xl font-medium text-gray-800">
-                  Offering
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div
-            class="group bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl border border-white/30 p-6 sm:p-8 animate-fade-in-up delay-[1100ms]"
-          >
-            <div class="flex items-center space-x-4">
-              <div
-                class="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#B59410] to-[#DECC84] rounded-full flex items-center justify-center text-white font-semibold text-lg shadow-lg"
-              >
-                12
-              </div>
-              <div class="flex-1">
-                <h3 class="heading-font text-xl font-medium text-gray-800">
-                  Benediction and Closing
-                </h3>
-              </div>
-            </div>
-          </div>
+            <path
+              d="M12 2C13.1 2 14 2.9 14 4V8H18C19.1 8 20 8.9 20 10S19.1 12 18 12H14V20C14 21.1 13.1 22 12 22S10 21.1 10 20V12H6C4.9 12 4 11.1 4 10S4.9 8 6 8H10V4C10 2.9 10.9 2 12 2Z"
+            />
+          </svg>
         </div>
+        <h1
+          class="font-['Crimson_Text'] text-4xl sm:text-5xl font-semibold mb-4"
+        >
+          Order of Program
+        </h1>
+        <div
+          class="w-24 h-1 bg-gradient-to-r from-[#B59410] to-[#DECC84] mx-auto mb-4 rounded-full"
+        ></div>
+        <p class="text-lg text-gray-200 max-w-2xl mx-auto leading-relaxed">
+          Join us in worship as we follow this sacred order of service.
+        </p>
+      </header>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        <!-- Loop through items -->
+        <script defer>
+          const items = [
+            'Opening Prayer',
+            'Opening Worship',
+            'Welcome Address',
+            'First Choir Ministration',
+            'Min Onwon',
+            'Drama',
+            'Min Jeremiah Minah',
+            'Second Choir Ministration',
+            'The Word',
+            'Min Jasper',
+            'Offering',
+            'Benediction and Closing',
+          ];
+
+          document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.grid');
+            items.forEach((item, i) => {
+              const card = document.createElement('div');
+              card.className =
+                'group bg-white/30 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6 sm:p-8 animate-fade-in-up';
+              card.style.animationDelay = `${(i + 1) * 100}ms`;
+
+              card.innerHTML = `
+                <div class="flex items-center space-x-4">
+                  <div class="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-[#B59410] to-[#DECC84] rounded-full flex items-center justify-center text-white font-semibold text-lg sm:text-xl shadow-lg">
+                    ${i + 1}
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="font-['Crimson_Text'] text-xl sm:text-2xl font-medium text-white">${item}</h3>
+                    <div class="mt-2 w-0 h-0.5 bg-gradient-to-r from-[#B59410] to-[#DECC84] group-hover:w-full transition-all duration-500 ease-out"></div>
+                  </div>
+                  <div class="flex-shrink-0 opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                    <svg class="w-5 h-5 text-blue-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                  </div>
+                </div>
+              `;
+
+              container.appendChild(card);
+            });
+          });
+        </script>
       </div>
     </div>
   </body>
