@@ -42,16 +42,24 @@
     <div class="fixed inset-0 -z-10">
       <div
         class="hidden sm:block w-full h-full bg-cover bg-center blur-md brightness-75"
-        style="
-          background-image: url('https://res.cloudinary.com/dxnoztssb/image/upload/v1754150562/rccg/bg.jpg');
-        "
+        style="background-image: url('https://res.cloudinary.com/dxnoztssb/image/upload/v1754150562/rccg/bg.jpg');"
       ></div>
       <div
         class="block sm:hidden w-full h-full bg-cover bg-center blur-md brightness-75"
-        style="
-          background-image: url('https://res.cloudinary.com/dxnoztssb/image/upload/v1754151533/rccg/bgmobile.jpg');
-        "
+        style="background-image: url('https://res.cloudinary.com/dxnoztssb/image/upload/v1754151533/rccg/bgmobile.jpg');"
       ></div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 hidden">
+      <div class="bg-white/20 backdrop-blur-xl rounded-2xl p-6 sm:p-8 max-w-md w-[90%] text-white relative">
+        <button id="closeModal" class="absolute top-3 right-3 text-white hover:text-gray-300 text-xl">&times;</button>
+        <img src="https://source.unsplash.com/400x250/?church" alt="Modal Image" class="rounded-xl mb-4 w-full object-cover" />
+        <h2 class="text-2xl font-bold mb-2" id="modalTitle">Program Title</h2>
+        <p class="text-sm text-gray-200">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non consequat erat, non hendrerit libero.
+        </p>
+      </div>
     </div>
 
     <!-- Content -->
@@ -60,17 +68,16 @@
         <div
           class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-[#B59410] to-[#DECC84] rounded-full mb-4 shadow-lg"
         >
-          <img src="https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png" alt="Rccg Logo">
+          <img
+            src="https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png"
+            alt="Rccg Logo"
+            class="w-10 h-10"
+          />
         </div>
-        <h1 class="text-4xl sm:text-5xl font-semibold mb-4">
-          Order of Program
-        </h1>
-        <div
-          class="w-24 h-1 bg-gradient-to-r from-[#B59410] to-[#DECC84] mx-auto mb-4 rounded-full"
-        ></div>
+        <h1 class="text-4xl sm:text-5xl font-semibold mb-4">Order of Program</h1>
+        <div class="w-24 h-1 bg-gradient-to-r from-[#B59410] to-[#DECC84] mx-auto mb-4 rounded-full"></div>
         <p class="text-[20px] text-gray-200 max-w-2xl mx-auto leading-relaxed">
-          Join us in worship as we follow this sacred order of service, designed
-          to bring us closer to God and to one another.
+          Join us in worship as we follow this sacred order of service, designed to bring us closer to God and to one another.
         </p>
       </header>
 
@@ -94,10 +101,14 @@
 
           document.addEventListener("DOMContentLoaded", () => {
             const container = document.querySelector(".grid");
+            const modal = document.getElementById("modal");
+            const modalTitle = document.getElementById("modalTitle");
+            const closeModal = document.getElementById("closeModal");
+
             items.forEach((item, i) => {
               const card = document.createElement("div");
               card.className =
-                "group bg-white/30 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-3 sm:p-4 animate-fade-in-up";
+                "group bg-white/30 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-3 sm:p-4 animate-fade-in-up cursor-pointer";
               card.style.animationDelay = `${(i + 1) * 100}ms`;
 
               card.innerHTML = `
@@ -117,7 +128,22 @@
                 </div>
               `;
 
+              card.addEventListener("click", () => {
+                modalTitle.textContent = item;
+                modal.classList.remove("hidden");
+              });
+
               container.appendChild(card);
+            });
+
+            closeModal.addEventListener("click", () => {
+              modal.classList.add("hidden");
+            });
+
+            window.addEventListener("click", (e) => {
+              if (e.target === modal) {
+                modal.classList.add("hidden");
+              }
             });
           });
         </script>
