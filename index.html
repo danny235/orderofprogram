@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Mozilla+Text:wght@200..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap"
       rel="stylesheet"
     />
 
@@ -32,33 +32,91 @@
         }
       }
 
+      @keyframes modal-in {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes modal-out {
+        from {
+          opacity: 1;
+          transform: scale(1);
+        }
+        to {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+      }
+
       .animate-fade-in-up {
         animation: fade-in-up 0.6s ease-out forwards;
       }
+
+      .animate-modal-in {
+        animation: modal-in 0.3s ease-out forwards;
+      }
+
+      .animate-modal-out {
+        animation: modal-out 0.2s ease-in forwards;
+      }
     </style>
   </head>
-  <body class="relative min-h-screen text-white">
+  <body class="relative min-h-screen text-white overflow-auto">
     <!-- Background Images -->
     <div class="fixed inset-0 -z-10">
       <div
         class="hidden sm:block w-full h-full bg-cover bg-center blur-md brightness-75"
-        style="background-image: url('https://res.cloudinary.com/dxnoztssb/image/upload/v1754150562/rccg/bg.jpg');"
+        style="
+          background-image: url('https://res.cloudinary.com/dxnoztssb/image/upload/v1754150562/rccg/bg.jpg');
+        "
       ></div>
       <div
         class="block sm:hidden w-full h-full bg-cover bg-center blur-md brightness-75"
-        style="background-image: url('https://res.cloudinary.com/dxnoztssb/image/upload/v1754151533/rccg/bgmobile.jpg');"
+        style="
+          background-image: url('https://res.cloudinary.com/dxnoztssb/image/upload/v1754151533/rccg/bgmobile.jpg');
+        "
       ></div>
     </div>
 
     <!-- Modal -->
-    <div id="modal" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 hidden">
-      <div class="bg-white/20 backdrop-blur-xl rounded-2xl p-6 sm:p-8 max-w-md w-[90%] text-white relative">
-        <button id="closeModal" class="absolute top-3 right-3 text-white hover:text-gray-300 text-xl">&times;</button>
-        <img src="https://source.unsplash.com/400x250/?church" alt="Modal Image" class="rounded-xl mb-4 w-full object-cover" />
-        <h2 class="text-2xl font-bold mb-2" id="modalTitle">Program Title</h2>
-        <p class="text-sm text-gray-200">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non consequat erat, non hendrerit libero.
-        </p>
+    <div
+      id="modal"
+      class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 hidden"
+    >
+      <div
+        id="modalBox"
+        class="flex flex-col items-center justify-center bg-white/20 backdrop-blur-xl rounded-2xl p-6 sm:p-8 max-w-md w-[90%] text-white relative"
+      >
+        <button
+          id="closeModal"
+          class="absolute top-3 right-3 text-white hover:text-gray-300 text-xl"
+        >
+          &times;
+        </button>
+        <div
+          class="relative flex items-center justify-center  mb-4 w-[50%] h-30 overflow-hidden"
+        >
+          <img
+            src=""
+            alt="Modal Image"
+            class="rounded-xl h-[90%] w-full object-cover"
+          />
+          <!-- Blur Overlay at Bottom -->
+          <div
+            class="absolute bottom-0 left-0 w-full h-1/3 bg-white/60 backdrop-blur-md z-10"
+          ></div>
+        </div>
+
+        <h2 class="text-2xl font-bold mb-2 text-center" id="modalTitle">
+          Program Title
+        </h2>
+        <p class="text-sm text-gray-200 text-center"></p>
       </div>
     </div>
 
@@ -71,83 +129,186 @@
           <img
             src="https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png"
             alt="Rccg Logo"
-            class="w-10 h-10"
           />
         </div>
-        <h1 class="text-4xl sm:text-5xl font-semibold mb-4">Order of Program</h1>
-        <div class="w-24 h-1 bg-gradient-to-r from-[#B59410] to-[#DECC84] mx-auto mb-4 rounded-full"></div>
+        <h1 class="text-4xl sm:text-5xl font-semibold mb-4">
+          Order of Program
+        </h1>
+        <div
+          class="w-24 h-1 bg-gradient-to-r from-[#B59410] to-[#DECC84] mx-auto mb-4 rounded-full"
+        ></div>
         <p class="text-[20px] text-gray-200 max-w-2xl mx-auto leading-relaxed">
-          Join us in worship as we follow this sacred order of service, designed to bring us closer to God and to one another.
+          Join us in worship as we follow this sacred order of service, designed
+          to bring us closer to God and to one another.
         </p>
       </header>
 
       <div class="grid gap-4 md:grid-cols-2">
-        <!-- Loop through items -->
-        <script defer>
-          const items = [
-            "Opening Prayer",
-            "Opening Worship",
-            "Welcome Address",
-            "First Choir Ministration",
-            "Min Onwon",
-            "Drama",
-            "Min Jeremiah Minah",
-            "Second Choir Ministration",
-            "The Word",
-            "Min Jasper",
-            "Offering",
-            "Benediction and Closing",
-          ];
-
-          document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector(".grid");
-            const modal = document.getElementById("modal");
-            const modalTitle = document.getElementById("modalTitle");
-            const closeModal = document.getElementById("closeModal");
-
-            items.forEach((item, i) => {
-              const card = document.createElement("div");
-              card.className =
-                "group bg-white/30 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-3 sm:p-4 animate-fade-in-up cursor-pointer";
-              card.style.animationDelay = `${(i + 1) * 100}ms`;
-
-              card.innerHTML = `
-                <div class="flex items-center space-x-4">
-                  <div class="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-[#B59410] to-[#DECC84] rounded-full flex items-center justify-center text-white font-semibold text-[15px] sm:text-[15px] shadow-lg">
-                    ${i + 1}
-                  </div>
-                  <div class="flex-1">
-                    <h3 class="text-[20px] sm:text-[20px] font-medium text-white">${item}</h3>
-                    <div class="mt-2 w-0 h-0.5 bg-gradient-to-r from-[#B59410] to-[#DECC84] group-hover:w-full transition-all duration-500 ease-out"></div>
-                  </div>
-                  <div class="flex-shrink-0 opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
-                    <svg class="w-5 h-5 text-blue-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                    </svg>
-                  </div>
-                </div>
-              `;
-
-              card.addEventListener("click", () => {
-                modalTitle.textContent = item;
-                modal.classList.remove("hidden");
-              });
-
-              container.appendChild(card);
-            });
-
-            closeModal.addEventListener("click", () => {
-              modal.classList.add("hidden");
-            });
-
-            window.addEventListener("click", (e) => {
-              if (e.target === modal) {
-                modal.classList.add("hidden");
-              }
-            });
-          });
-        </script>
+        <!-- Program Cards are generated by JS -->
       </div>
     </div>
+
+    <script defer>
+      const items = [
+        {
+          id: 1,
+          title: "Opening Prayer",
+          imageUrl:
+            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png",
+          description:
+            "A solemn invocation to open the service and welcome God's presence.",
+        },
+        {
+          id: 2,
+          title: "Opening Worship",
+          imageUrl:
+            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png",
+          description:
+            "Uplifting songs of praise to prepare our hearts for the service.",
+        },
+        {
+          id: 3,
+          title: "Welcome Address",
+          imageUrl:
+            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png",
+          description: "A warm welcome to everyone gathered for the concert.",
+        },
+        {
+          id: 4,
+          title: "First Choir Ministration",
+          imageUrl:
+            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png",
+          description: "The choir leads us in anointed songs of worship.",
+        },
+        {
+          id: 5,
+          title: "Min Onwon",
+          imageUrl:
+            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png",
+          description:
+            "Ministration by Minister Onwon, sharing God's message through music.",
+        },
+        {
+          id: 6,
+          title: "Drama",
+          imageUrl:
+            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png",
+          description:
+            "A creative dramatization of a powerful Christian message.",
+        },
+        {
+          id: 7,
+          title: "Min Jeremiah Minah",
+          imageUrl:
+            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754159525/rccg/jeremiah.png",
+          description:
+            "Minister Jeremiah ministers through songs that inspire and uplift.",
+        },
+        {
+          id: 8,
+          title: "Second Choir Ministration",
+          imageUrl:
+            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png",
+          description: "Another powerful time of worship led by the choir.",
+        },
+        {
+          id: 9,
+          title: "The Word",
+          imageUrl:
+            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png",
+          description:
+            "The undiluted Word of God delivered with passion and purpose.",
+        },
+        {
+          id: 10,
+          title: "Min Jasper",
+          imageUrl:
+            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754159511/rccg/JASPER_xkjw8n.png",
+          description:
+            "Ministration by Minister Jasper to lift our spirits in worship.",
+        },
+        {
+          id: 11,
+          title: "Offering",
+          imageUrl:
+            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png",
+          description: "An opportunity to give cheerfully to the work of God.",
+        },
+        {
+          id: 12,
+          title: "Benediction and Closing",
+          imageUrl:
+            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png",
+          description: "Closing prayer and final blessings to end the program.",
+        },
+      ];
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const container = document.querySelector(".grid");
+        const modal = document.getElementById("modal");
+        const modalBox = document.getElementById("modalBox");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalImage = modalBox.querySelector("img");
+        const modalDescription = modalBox.querySelector("p");
+        const closeModal = document.getElementById("closeModal");
+        let isAnimating = false;
+
+        function openModal(item) {
+          if (isAnimating) return;
+          isAnimating = true;
+          modalTitle.textContent = item.title;
+          modalImage.src = item.imageUrl;
+          modalImage.alt = item.title;
+          modalDescription.textContent = item.description;
+          modal.classList.remove("hidden");
+          modalBox.classList.remove("animate-modal-out");
+          modalBox.classList.add("animate-modal-in");
+          setTimeout(() => (isAnimating = false), 300);
+        }
+
+        function closeModalWithAnimation() {
+          if (isAnimating) return;
+          isAnimating = true;
+          modalBox.classList.remove("animate-modal-in");
+          modalBox.classList.add("animate-modal-out");
+          setTimeout(() => {
+            modal.classList.add("hidden");
+            isAnimating = false;
+          }, 200);
+        }
+
+        items.forEach((item, i) => {
+          const card = document.createElement("div");
+          card.className =
+            "group bg-white/30 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-3 sm:p-4 animate-fade-in-up cursor-pointer";
+          card.style.animationDelay = `${(i + 1) * 100}ms`;
+
+          card.innerHTML = `
+        <div class="flex items-center space-x-4">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-[#B59410] to-[#DECC84] rounded-full flex items-center justify-center text-white font-semibold text-[15px] sm:text-[15px] shadow-lg">
+            ${item.id}
+          </div>
+          <div class="flex-1">
+            <h3 class="text-[20px] sm:text-[20px] font-medium text-white">${item.title}</h3>
+            <div class="mt-2 w-0 h-0.5 bg-gradient-to-r from-[#B59410] to-[#DECC84] group-hover:w-full transition-all duration-500 ease-out"></div>
+          </div>
+          <div class="flex-shrink-0 opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+            <svg class="w-5 h-5 text-blue-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </div>
+      `;
+
+          card.addEventListener("click", () => openModal(item));
+          container.appendChild(card);
+        });
+
+        closeModal.addEventListener("click", closeModalWithAnimation);
+        window.addEventListener("click", (e) => {
+          if (e.target === modal) closeModalWithAnimation();
+        });
+      });
+    </script>
   </body>
 </html>
