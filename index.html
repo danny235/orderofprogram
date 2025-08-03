@@ -16,6 +16,27 @@
       rel="stylesheet"
     />
 
+    <!-- Lazy Loading Image -->
+    <!-- Preload important images -->
+    <link
+      rel="preload"
+      as="image"
+      href="https://res.cloudinary.com/dxnoztssb/image/upload/v1754150562/rccg/bg.jpg"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="https://res.cloudinary.com/dxnoztssb/image/upload/v1754151533/rccg/bgmobile.jpg"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png"
+    />
+
+    <!-- Preconnect to Cloudinary -->
+    <link rel="preconnect" href="https://res.cloudinary.com" />
+
     <style>
       body {
         font-family: "Darker Grotesque", sans-serif;
@@ -100,12 +121,13 @@
           &times;
         </button>
         <div
-          class="relative flex items-center justify-center  mb-4 w-[50%] h-30 overflow-hidden"
+          class="relative flex items-center justify-center mb-4 w-[50%] h-30 overflow-hidden"
         >
           <img
             src=""
             alt="Modal Image"
             class="rounded-xl h-[90%] w-full object-cover"
+            loading="lazy"
           />
           <!-- Blur Overlay at Bottom -->
           <!-- <div
@@ -129,6 +151,7 @@
           <img
             src="https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png"
             alt="Rccg Logo"
+            loading="eager"
           />
         </div>
         <h1 class="text-4xl sm:text-5xl font-semibold mb-4">
@@ -154,7 +177,7 @@
           id: 1,
           title: "Opening Prayer",
           imageUrl:
-            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png",
+            "https://images.unsplash.com/photo-1543702404-38c2035462ad?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           description:
             "A solemn invocation to open the service and welcome God's presence.",
         },
@@ -162,7 +185,7 @@
           id: 2,
           title: "Opening Worship",
           imageUrl:
-            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png",
+            "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=2346&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           description:
             "Uplifting songs of praise to prepare our hearts for the service.",
         },
@@ -170,21 +193,21 @@
           id: 3,
           title: "Welcome Address",
           imageUrl:
-            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png",
+            "https://images.unsplash.com/photo-1633775218380-30c7ab85a5c5?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           description: "A warm welcome to everyone gathered for the concert.",
         },
         {
           id: 4,
           title: "First Choir Ministration",
           imageUrl:
-            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png",
+            "https://images.unsplash.com/photo-1720186576697-24c1496a07e1?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           description: "The choir leads us in anointed songs of worship.",
         },
         {
           id: 5,
           title: "Min Onwon",
           imageUrl:
-            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png",
+            "https://images.unsplash.com/photo-1675099346949-e7863851803a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           description:
             "Ministration by Minister Onwon, sharing God's message through music.",
         },
@@ -192,7 +215,7 @@
           id: 6,
           title: "Drama",
           imageUrl:
-            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png",
+            "https://images.unsplash.com/photo-1594909122845-11baa439b7bf?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           description:
             "A creative dramatization of a powerful Christian message.",
         },
@@ -208,14 +231,14 @@
           id: 8,
           title: "Second Choir Ministration",
           imageUrl:
-            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png",
+            "https://plus.unsplash.com/premium_photo-1733688153126-cda6b64a5f12?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           description: "Another powerful time of worship led by the choir.",
         },
         {
           id: 9,
           title: "The Word",
           imageUrl:
-            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png",
+            "https://images.unsplash.com/photo-1532190795157-3f983fb7fa3b?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           description:
             "The undiluted Word of God delivered with passion and purpose.",
         },
@@ -231,14 +254,14 @@
           id: 11,
           title: "Offering",
           imageUrl:
-            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png",
+            "https://images.unsplash.com/photo-1673042872287-a77ef03317a4?q=80&w=1408&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           description: "An opportunity to give cheerfully to the work of God.",
         },
         {
           id: 12,
           title: "Benediction and Closing",
           imageUrl:
-            "https://res.cloudinary.com/dxnoztssb/image/upload/v1754154704/rccg/Rccg_logo_w5te7s.png",
+            "https://images.unsplash.com/photo-1577992338358-488ae7d46adc?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           description: "Closing prayer and final blessings to end the program.",
         },
       ];
@@ -285,7 +308,7 @@
 
           card.innerHTML = `
         <div class="flex items-center space-x-4">
-          <div class="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-[#B59410] to-[#DECC84] rounded-full flex items-center justify-center text-white font-semibold text-[15px] sm:text-[15px] shadow-lg">
+          <div class="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-[#B59410] to-[#DECC84] rounded-full flex items-center justify-center text-white font-bold text-[18px] sm:text-[18px] shadow-lg">
             ${item.id}
           </div>
           <div class="flex-1">
